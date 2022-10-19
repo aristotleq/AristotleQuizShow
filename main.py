@@ -29,30 +29,28 @@ questions = ("Q1. The moon is the only natural satellite orbiting planet Earth."
 # Answer stored in a separate tuple
 answers = ("T", "F", "T", "T")
 
+userGuess = ""
 guessRight = 0
-guessWrong = 0
+
 numberOfQuestions = len(questions)
 
+# Show the user the question
 for index in range(numberOfQuestions):
-  # Show the user the question
   print(questions[index])
   print()
 
+  # Re-prompt user if other values are entered
+  while(userGuess != "T" and userGuess != "F"):
   # Get the answer from the user
   userGuess = input("Please enter 'T' for true or 'F' for false: ")
   print()
   
-  answer = userGuess
-
-  # If answer is incorrect, re-prompt the user
-  if(answer != answers[index]):
-    guessWrong += 1
-  # Compare the answer to the correct answer
-  if(answer == answers[index]):
+    # Counter for correct answers
+    if(userGuess == answers[index]):
     guessRight += 1
       
-
+  userGuess = ""
 # Display how many questions correct out of total number of questions
 print(f"You got {guessRight} out of {numberOfQuestions} correct!")
-print(f"You got {guessWrong} out of {numberOfQuestions} wrong.")
+# Exit greeting
 print(f"Thanks for playing, {userName}!")
